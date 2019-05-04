@@ -1,0 +1,29 @@
+<!--The content below is only a placeholder and can be replaced.-->
+
+<section class="container">
+  <div class="row justify-content-center">
+      <div class="col-md-8">
+        <h1 class="mt-3">
+          {{ title }}
+        </h1>
+        <h2 class="font-weight-normal mb-4">
+          {{ siteDescription }} <br>
+          <span class="small"> </span><br>
+          <span>{{lastUpdate| date:'MM/dd/yy'}} {{lastUpdate| date:'h'}}h{{lastUpdate| date:'mm'}} {{lastUpdate| date:'z'}} </span>
+
+        </h2>
+
+        <ul class="list-group">
+            <app-pitch-single
+              *ngFor="let pitch of pitches"
+              [pitchTitle]="pitch.title"
+              [pitchCategory]="pitch.category"
+              [isAuth]="isAuth">
+            </app-pitch-single>
+        </ul>
+      </div>
+  </div>
+</section>
+
+
+<router-outlet></router-outlet>
